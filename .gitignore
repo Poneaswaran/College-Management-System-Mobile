@@ -43,3 +43,33 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+# Flutter generated
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+
+# Platforms you're NOT targeting
+linux/
+windows/
+macos/
+web/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Android local config
+android/local.properties
+android/key.properties        ← important: never push your keystore config
+*.keystore
+*.jks
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+
+# Dart
+*.dart_snapshot
