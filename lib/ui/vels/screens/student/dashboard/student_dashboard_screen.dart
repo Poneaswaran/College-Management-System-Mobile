@@ -8,6 +8,7 @@ import '../../../widgets/custom_button.dart';
 import '../../login_screen.dart';
 import '../../../widgets/vels_header.dart';
 import '../attendance_screen.dart';
+import '../student_more_screen.dart';
 import 'metrics_grid.dart';
 import 'progress_card.dart';
 import 'next_class_card.dart';
@@ -145,7 +146,7 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
       case 3:
         return _buildGradesTab(data);
       case 4:
-        return _buildProfileTab(data);
+        return StudentMoreScreen(dashboardData: data);
       default:
         return _buildDashboardHome(data);
     }
@@ -389,130 +390,6 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildProfileTab(StudentDashboardData data) {
-    final user = AuthService.currentUser;
-
-    return Column(
-      children: [
-        VelsHeader(
-          title: data.studentName,
-          subtitle: 'Register No: ${data.registerNumber}',
-          profilePhotoUrl: data.profilePhotoUrl,
-          showLogout: true,
-        ),
-        Expanded(
-          child: ListView(
-            padding: const EdgeInsets.all(20),
-            children: [
-              // Profile Header Card
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: VelsTheme.borderLight),
-                ),
-                child: Column(
-                  children: [
-                    CircleAvatar(
-                      radius: 40,
-                      backgroundColor: VelsTheme.secondaryBlue.withOpacity(0.1),
-                      backgroundImage: data.profilePhotoUrl != null ? NetworkImage(data.profilePhotoUrl!) : null,
-                      child: data.profilePhotoUrl == null
-                          ? const Icon(Icons.person, size: 50, color: VelsTheme.secondaryBlue)
-                          : null,
-                    ),
-                    const SizedBox(height: 16),
-                    Text(
-                      data.studentName,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: VelsTheme.textDark,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      'Register Number: ${data.registerNumber}',
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: VelsTheme.textLight,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
-              // Academic Details Section
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: VelsTheme.borderLight),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Account Details',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: VelsTheme.textDark,
-                      ),
-                    ),
-                    const Divider(height: 24),
-                    _buildProfileRow('Email', user?.email ?? 'N/A'),
-                    _buildProfileRow('Role', user?.role ?? 'N/A'),
-                    _buildProfileRow('Department', user?.department ?? 'N/A'),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 32),
-              // Logout Button
-              CustomButton(
-                text: 'Sign Out',
-                backgroundColor: VelsTheme.overdueRed,
-                onPressed: () async {
-                  await AuthService.logout();
-                  if (mounted) {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => const LoginScreen()),
-                    );
-                  }
-                },
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildProfileRow(String label, String value) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            label,
-            style: const TextStyle(color: VelsTheme.textLight, fontSize: 13),
-          ),
-          Text(
-            value,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              color: VelsTheme.textDark,
-              fontSize: 13,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

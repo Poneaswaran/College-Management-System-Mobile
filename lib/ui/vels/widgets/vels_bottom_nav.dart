@@ -38,9 +38,9 @@ class VelsBottomNav extends StatelessWidget {
             children: [
               _buildNavItem(
                 index: 0,
-                icon: Icons.home_outlined,
-                activeIcon: Icons.home,
-                label: 'Home',
+                icon: Icons.grid_view_outlined,
+                activeIcon: Icons.grid_view,
+                label: 'Dashboard',
               ),
               _buildNavItem(
                 index: 1,
@@ -56,15 +56,15 @@ class VelsBottomNav extends StatelessWidget {
               ),
               _buildNavItem(
                 index: 3,
-                icon: Icons.star_outline,
-                activeIcon: Icons.star,
-                label: 'Grades',
+                icon: Icons.school_outlined,
+                activeIcon: Icons.school,
+                label: 'Results',
               ),
               _buildNavItem(
                 index: 4,
-                icon: Icons.person_outline,
-                activeIcon: Icons.person,
-                label: 'Profile',
+                icon: Icons.menu,
+                activeIcon: Icons.menu,
+                label: 'More',
               ),
             ],
           ),
