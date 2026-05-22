@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/academic_models.dart';
-import '../../../../../core/academic_service.dart';
-import '../../../../../core/auth_service.dart';
+import '../../../../../services/academic_service.dart';
+import '../../../../../services/auth_service.dart';
 import '../../../theme/vels_theme.dart';
 import '../../../widgets/vels_bottom_nav.dart';
 import '../../../widgets/custom_button.dart';

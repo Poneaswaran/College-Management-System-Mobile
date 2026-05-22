@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'constants.dart';
-import 'storage_helper.dart';
+import '../core/constants.dart';
+import '../core/storage_helper.dart';
 
 class ApiClient {
   static final http.Client _client = http.Client();

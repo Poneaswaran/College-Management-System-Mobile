@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'api_client.dart';
-import 'academic_models.dart';
-import 'attendance_models.dart';
-import 'constants.dart';
-import 'storage_helper.dart';
+import '../core/academic_models.dart';
+import '../core/attendance_models.dart';
+import '../core/constants.dart';
+import '../core/storage_helper.dart';
 import 'package:http/http.dart' as http;
 
 class AcademicService {

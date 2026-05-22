@@ -55,17 +55,17 @@ collge_management_system_mobile/
 │   │   ├── flavor_config.dart
 │   │   └── flavors/
 │   │       └── vels_config.dart
-│   ├── core/                 # Shared models, utilities, and services
+│   ├── core/                 # Shared models, utilities, and helpers
 │   │   ├── academic_models.dart
-│   │   ├── academic_service.dart
-│   │   ├── api_client.dart
 │   │   ├── auth_provider.dart
-│   │   ├── auth_service.dart
 │   │   ├── constants.dart    # Configures base URLs per tenant
 │   │   ├── router.dart
 │   │   ├── storage_helper.dart
 │   │   └── user_model.dart
-│   ├── services/             # Dynamic business logic services
+│   ├── services/             # API services communicating with backend
+│   │   ├── academic_service.dart
+│   │   ├── api_client.dart
+│   │   └── auth_service.dart
 │   ├── ui/                   # Root UI folder
 │   │   └── vels/             # UI elements for VELS tenant
 │   │       ├── router/       # VELS-specific routing config
@@ -164,7 +164,7 @@ class AppConstants {
 ### Authentication Flow
 - The mobile app performs credential authentication via the `/api/token/` (or equivalent endpoint) to obtain a **JWT Access & Refresh Token**.
 - Tokens are stored locally on the device using `lib/core/storage_helper.dart` (backing package recommendation: `flutter_secure_storage`).
-- All subsequent HTTP calls via `lib/core/api_client.dart` (backed by `dio`) automatically attach the `Authorization: Bearer <token>` header.
+- All subsequent HTTP calls via `lib/services/api_client.dart` (backed by `dio`) automatically attach the `Authorization: Bearer <token>` header.
 
 ---
 

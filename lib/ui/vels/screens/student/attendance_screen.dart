@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:geolocator/geolocator.dart';
-import '../../../../core/academic_service.dart';
+import '../../../../services/academic_service.dart';
 import '../../../../core/attendance_models.dart';
 import '../../theme/vels_theme.dart';
 import '../../widgets/vels_header.dart';

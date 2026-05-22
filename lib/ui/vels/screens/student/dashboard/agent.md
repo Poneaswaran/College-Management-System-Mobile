@@ -38,7 +38,10 @@ The mobile application has been updated with the custom **VELS** theme, reusable
 collge_management_system_mobile/
 ├── lib/
 │   ├── core/
-│   │   ├── academic_models.dart      # [NEW] Dart Models for parsing the Dashboard API payload
+│   │   └── academic_models.dart      # [NEW] Dart Models for parsing the Dashboard API payload
+│   ├── services/
+│   │   ├── api_client.dart           # [NEW] Reusable network client
+│   │   ├── auth_service.dart         # [NEW] Authentication Service logic
 │   │   └── academic_service.dart     # [NEW] API Service to fetch student dashboard details
 │   └── ui/
 │       └── vels/

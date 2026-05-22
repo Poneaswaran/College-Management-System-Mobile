@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/auth_service.dart';
+import '../../../../services/auth_service.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
 import '../theme/vels_theme.dart';

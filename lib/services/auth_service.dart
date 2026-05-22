@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'api_client.dart';
-import 'constants.dart';
-import 'storage_helper.dart';
-import 'user_model.dart';
+import '../core/constants.dart';
+import '../core/storage_helper.dart';
+import '../core/user_model.dart';
 
 class AuthService {
   static UserModel? _currentUser;
